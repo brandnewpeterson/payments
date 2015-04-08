@@ -3,7 +3,7 @@ Code Test #1 -- Hotel Quickly
 
 GATEWAY CREDENTIALS
 
-Very Important: Before running the app, please supply your own Paypal/Braintree credentials inside the root-level cred.json file.
+Very Important: Before running the app, please supply your own Paypal/Braintree credentials inside the root-level creds.json file.
 
 PLEA FOR LENIENCY
 
