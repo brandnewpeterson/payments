@@ -1,0 +1,45 @@
+extends layout
+
+block content
+
+    h1= title
+    form#formPurchase(name="purchase",method="post",action="/")
+        h3 Order Info
+        input#inputCustomerName1(type="text", placeholder="customer\'s first name", name="customerName1", value=customerName1)
+        input#inputCustomerName2(type="text", placeholder="customer\'s last name", name="customerName2", value=customerName2)
+        input#inputPrice(type="text", placeholder="price", name="price", value=price)
+
+        select(name="currency", type="text", placeholder="currency")
+            - var types = [ 'USD', 'EUR', 'THB', 'HKD', 'SGD', 'AUD']
+            - for item in types
+                option(selected=currency == item) #{item}
+
+        h3 Credit Card Info
+        input#inputCCHolder1(type="text", placeholder="holder's first name", name="ccHolder1", value=ccHolder1)
+        input#inputCCHolder2(type="text", placeholder="holder's last name", name="ccHolder2", value=ccHolder2)
+        input#inputccNumber(type="text", placeholder="number", name="ccNumber", value=ccNumber)
+        br
+        input#inputCCExpirationMonth(type="text", placeholder="expiration month", name="ccExpirationMonth", value=ccExpirationMonth)
+        input#inputCCExpirationYear(type="text", placeholder="expiration year", name="ccExpirationYear", value=ccExpirationYear)
+        input#inputCCCVV(type="text", placeholder="CVV", name="ccCVV", value=ccCVV)
+        br
+        br
+        button#btnSubmit(type="submit") submit
+        br
+        br
+        if (validationErrors)
+            .alert.alert-danger
+                p= message
+                ul
+                each error in validationErrors
+                    li= error.msg
+        if (paymentErrors)
+            - var payment_failure_details = JSON.stringify(paymentErrors, null, 2);
+            .alert.alert-danger
+                p Payment failure. Details follow:
+                p= payment_failure_details
+        if (payment)
+            - var payment_success_details = JSON.stringify(payment, null, 2);
+            .alert.alert-success
+                p Payment success. Details follow:
+                p= payment_success_details
