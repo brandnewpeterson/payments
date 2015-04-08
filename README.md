@@ -1,6 +1,10 @@
 # payments
 Code Test #1 -- Hotel Quickly
 
+GATEWAY CREDENTIALS
+
+Very Important: Before running the app, please supply your own Paypal/Braintree credential inside the root-level cred.json file!
+
 PLEA FOR LENIENCY
 
 Go easy on me: A few days ago, I'd never used node.js -- but what a cool thing it is! I inquired about Android-specific coding jobs, but was given this test, so I took the challenge and I'm glad I did. (You can't say you can properly write mobile apps without understanding the server-side interactions.)
